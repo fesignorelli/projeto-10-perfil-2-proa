@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+html, body {
+    display: grid;
+    height: 100%;
+    place-items: center;
+    background: linear-gradient(375deg, #1cc7d0, #9c13db);
+}
+
+.wrapper {
+    height: 400px;
+    width: 320px;
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.wrapper .card {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: #fff;
+    border-radius: 10px;
+    padding: 5px;
+    transform-style: preserve-3d;
+    transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    backface-visibility: hidden;
+}
+
+.wrapper .front-face {
+    transform: rotateY(0deg);
+}
+
+.wrapper .back-face {
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.wrapper:hover .front-face {
+    transform: rotateY(-180deg);
+}
+
+.wrapper:hover .back-face {
+    transform: rotateY(0deg);
+}
+
+.wrapper .card img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.wrapper .back-face img {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    padding: 2%;
+    background: linear-gradient(375deg, #1cc7d0, #9c13db);
+}
+
+.wrapper .back-face .info {
+    text-align: center;
+}
+
+.info .title {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.back-face ul {
+    display: flex;
+}
+
+.back-face ul a {
+    display: block;
+    height: 40px;
+    width: 40px;
+    background: linear-gradient(375deg, #1cc7d0, #9c13db);
+    text-align: center;
+    border: 2px solid transparent;
+    line-height: 38px;
+    margin: 0 5px;
+    border-radius: 50%;
+    color: #fff;
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.back-face ul a:hover { 
+    background: none;
+    color: #1cc7d0;
+    border-color: #1cc7d0;
+}
